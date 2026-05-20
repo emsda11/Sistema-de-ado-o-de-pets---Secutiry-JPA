@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção de Pets</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/img/logo-patinhas.png" width="150">
+        </div>
+        <h1>🐾 Sistema de Adoção de Pets</h1>
+        <p>Projeto com Spring Boot, Security, H2, Repository, HTML e fotos dos pets</p>
+        <form method="post" action="/logout">
+            <button class="btn-sair" type="submit">Sair</button>
+        </form>
+    </header>
+
+    <main>
+        <h2>Cadastrar Pet</h2>
+        <input type="hidden" id="idPet">
+
+        <label>Nome:</label>
+        <input type="text" id="nome" placeholder="Ex.: Mel">
+
+        <label>Tipo:</label>
+        <input type="text" id="tipo" placeholder="Ex.: Cachorro, Gato">
+
+        <label>Idade:</label>
+        <input type="number" id="idade" placeholder="Ex.: 2">
+
+        <label>URL da foto:</label>
+        <input type="text" id="fotoUrl" placeholder="Cole aqui o link da foto do pet">
+
+        <button onclick="salvarPet()">Salvar Pet</button>
+        <button onclick="limparFormularioPet()">Limpar</button>
+        <p id="mensagemPet" class="mensagem"></p>
+
+        <h2>Pets para adoção</h2>
+        <div id="listaPets" class="grid-pets"></div>
+
+        <hr>
+
+        <h2>Cadastrar Adotante</h2>
+        <input type="hidden" id="idAdotante">
+
+        <label>Nome do adotante:</label>
+        <input type="text" id="nomeAdotante" placeholder="Ex.: Maria Silva">
+
+        <label>Telefone:</label>
+        <input type="text" id="telefoneAdotante" placeholder="Ex.: 84999999999">
+
+        <label>Cidade:</label>
+        <input type="text" id="cidadeAdotante" placeholder="Ex.: Natal">
+
+        <label>Pet desejado:</label>
+        <select id="idPetDesejado">
+            <option value="">Selecione um pet</option>
+        </select>
+
+        <button onclick="salvarAdotante()">Salvar Adotante</button>
+        <button onclick="limparFormularioAdotante()">Limpar</button>
+        <p id="mensagemAdotante" class="mensagem"></p>
+
+        <h2>Adotantes cadastrados</h2>
+        <div id="listaAdotantes"></div>
+    </main>
+
+    <div id="modalAdocao" class="modal escondido">
+        <div class="modal-conteudo">
+            <h2>Confirmar adoção</h2>
+            <p id="textoPetAdocao"></p>
+            <input type="hidden" id="idPetAdocao">
+
+            <label>Nome do adotante:</label>
+            <input type="text" id="nomeAdocao" placeholder="Ex.: Maria Silva">
+
+            <label>Telefone:</label>
+            <input type="text" id="telefoneAdocao" placeholder="Ex.: 84999999999">
+
+            <label>Cidade:</label>
+            <input type="text" id="cidadeAdocao" placeholder="Ex.: Natal">
+
+            <button onclick="confirmarAdocao()">Confirmar adoção</button>
+            <button class="btn-remover" onclick="fecharModalAdocao()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
